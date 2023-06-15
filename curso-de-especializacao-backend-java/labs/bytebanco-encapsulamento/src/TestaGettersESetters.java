@@ -25,6 +25,7 @@ public class TestaGettersESetters {
 		
 		System.out.println("CPF Cliente: " + conta.getTitular().getCpf());
 		
+//		tem a mesma referência de memória
 		System.out.println(conta.getTitular());
 		System.out.println(maria);
 		System.out.println(titularDaConta);

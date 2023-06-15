@@ -75,8 +75,4 @@ public class Conta {
 	public static int getTotal() {
 		return total;
 	}
-	
-	public static void setTotal(int total) {
-		Conta.total = total;
-	}
 }

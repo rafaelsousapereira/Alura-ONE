@@ -1,6 +1,6 @@
 package heranca;
 
-public class Funcionario {
+public abstract class Funcionario {
 
 	private String nome;
 	private String cpf;

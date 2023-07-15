@@ -2,7 +2,11 @@ package heranca;
 
 public class Gerente extends Funcionario implements Autenticavel {
 
-	private int senha;
+private AutenticadorUtil autenticador;
+	
+	public Gerente() {
+		this.autenticador = new AutenticadorUtil();
+	}
 	
 	public double getBonificacao() {
 		System.out.println("Chamando metodo bonificacao do GERENTE");
@@ -11,15 +15,11 @@ public class Gerente extends Funcionario implements Autenticavel {
 
 	@Override
 	public void setSenha(int senha) {
-		this.senha = senha;
+		this.autenticador.setSenha(senha);
 	}
 
 	@Override
 	public boolean autentica(int senha) {
-		if (this.senha == senha) {
-			return true;
-		}
-		return false;
+		return this.autenticador.autentica(senha);
 	}
-
 }

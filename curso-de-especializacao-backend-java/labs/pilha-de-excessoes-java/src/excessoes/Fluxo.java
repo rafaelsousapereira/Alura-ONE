@@ -4,13 +4,17 @@ public class Fluxo {
 
 	public static void main(String[] args) {
         System.out.println("Ini do main");
-        metodo1();
+        try {
+        	metodo1();
+        } catch (ArithmeticException e) {
+			System.out.println("ArithmeticException");
+		}
         System.out.println("Fim do main");
     }
 
     private static void metodo1() {
         System.out.println("Ini do metodo1");
-        metodo2();
+    	metodo2();
         System.out.println("Fim do metodo1");
     }
 
@@ -18,6 +22,7 @@ public class Fluxo {
         System.out.println("Ini do metodo2");
         for(int i = 1; i <= 5; i++) {
             System.out.println(i);
+            	int a = i / 0;
         }
         System.out.println("Fim do metodo2");
     }

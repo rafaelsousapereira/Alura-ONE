@@ -1,5 +1,6 @@
 package excessoes;
 
 public class Conta {
-	void getSaldo() {}
+//	metodo demonstrativo
+	void getSaldo() throws MinhaExcecao {}
 }

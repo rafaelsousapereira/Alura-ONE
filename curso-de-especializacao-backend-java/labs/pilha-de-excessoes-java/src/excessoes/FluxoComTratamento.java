@@ -16,6 +16,9 @@ public class FluxoComTratamento {
 
     private static void metodo1() {
         System.out.println("Ini do metodo1");
+        Integer a = new Integer(1);
+        Integer b = new Integer(1);
+        System.out.println(a == b);
     	metodo2();
         System.out.println("Fim do metodo1");
     }

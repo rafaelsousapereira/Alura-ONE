@@ -3,6 +3,7 @@ bin/
 .classpath
 .project
 .settings/
+*.class
 
 # Intellij
 .idea/

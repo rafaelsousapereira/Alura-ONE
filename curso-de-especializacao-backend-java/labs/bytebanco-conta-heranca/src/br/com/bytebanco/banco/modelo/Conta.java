@@ -1,4 +1,6 @@
-import exceptions.SaldoInsuficienteException;
+package br.com.bytebanco.banco.modelo;
+
+import br.com.bytebanco.banco.exceptions.SaldoInsuficienteException;
 
 public abstract class Conta {
 
@@ -7,7 +9,7 @@ public abstract class Conta {
 	private int numero;
 	private Cliente titular;
 	private static int total = 0;
-	
+
 	public Conta(int agencia, int numero) {
 		Conta.total++;
 		System.out.println("o total de contas eh: " + Conta.total);
@@ -29,7 +31,7 @@ public abstract class Conta {
 		this.saca(valor);
 		destino.deposita(valor);
 	}
-	
+
 	public double getSaldo() {
 		return this.saldo;
 	}
@@ -37,7 +39,7 @@ public abstract class Conta {
 	public int getNumero() {
 		return this.numero;
 	}
-	
+
 	public void setNumero(int numero) {
 		if (numero <= 0) {
 			System.out.println("nao pode numero menor igual a 0");
@@ -45,11 +47,11 @@ public abstract class Conta {
 		}
 		this.numero = numero;
 	}
-	
+
 	public int getAgencia() {
 		return this.agencia;
 	}
-	
+
 	public void setAgencia(int agencia) {
 		if (agencia <= 0) {
 			System.out.println("nao pode agencia menor igual a 0");
@@ -57,15 +59,15 @@ public abstract class Conta {
 		}
 		this.agencia = agencia;
 	}
-	
+
 	public Cliente getTitular() {
 		return this.titular;
 	}
-	
+
 	public void setTitular(Cliente titular) {
 		this.titular = titular;
 	}
-	
+
 	public static int getTotal() {
 		return total;
 	}

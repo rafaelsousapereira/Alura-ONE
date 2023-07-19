@@ -1,15 +1,19 @@
-import exceptions.SaldoInsuficienteException;
+package br.com.bytebanco.banco.teste;
+
+import br.com.bytebanco.banco.exceptions.SaldoInsuficienteException;
+import br.com.bytebanco.banco.modelo.ContaCorrente;
+import br.com.bytebanco.banco.modelo.ContaPoupanca;
 
 public class TesteContas {
 
 	public static void main(String[] args) throws SaldoInsuficienteException {
-		
+
 		ContaCorrente contaCorrente = new ContaCorrente(111, 111);
 		contaCorrente.deposita(100.0);
-		
+
 		ContaPoupanca contaPoupanca = new ContaPoupanca(222, 222);
 		contaPoupanca.deposita(200.0);
-		
+
 		contaCorrente.transfere(10.0, contaPoupanca);
 		System.out.println("CC: " + contaCorrente.getSaldo());
 		System.out.println("CP: " + contaPoupanca.getSaldo());

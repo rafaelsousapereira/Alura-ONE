@@ -2,6 +2,12 @@ package br.com.bytebanco.banco.modelo;
 
 import br.com.bytebanco.banco.exceptions.SaldoInsuficienteException;
 
+/**
+ * Classe que representa a moldura de uma conta no Bytebanco
+ *  
+ * @author Rafael Sousa
+ * @version 0.1
+ */
 public abstract class Conta {
 
 	protected double saldo;
@@ -20,6 +26,12 @@ public abstract class Conta {
 
 	public abstract void deposita(double valor);
 
+	/**
+	 * Valor precisa ser maior do que o saldo
+	 * 
+	 * @param valor
+	 * @throws SaldoInsuficienteException
+	 */
 	public void saca(double valor) throws SaldoInsuficienteException {
 		if (this.saldo < valor) {
 			throw new SaldoInsuficienteException("Saldo: " + this.saldo + ", Valor: " + valor);

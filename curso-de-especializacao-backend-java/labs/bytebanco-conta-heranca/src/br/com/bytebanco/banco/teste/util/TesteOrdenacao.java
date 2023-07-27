@@ -10,7 +10,7 @@ import br.com.bytebanco.banco.modelo.Conta;
 import br.com.bytebanco.banco.modelo.ContaCorrente;
 import br.com.bytebanco.banco.modelo.ContaPoupanca;
 
-public class Teste {
+public class TesteOrdenacao {
 
 	public static void main(String[] args) {
 
@@ -49,7 +49,7 @@ public class Teste {
 		}
 
 //		NumeroDaContaComparator comparator = new NumeroDaContaComparator();
-		lista.sort(new TitularDaContaComparator());
+		lista.sort( new TitularDaContaComparator() );
 
 //		Collections.sort(lista, new TitularDaContaComparator());
 		Collections.sort(lista);

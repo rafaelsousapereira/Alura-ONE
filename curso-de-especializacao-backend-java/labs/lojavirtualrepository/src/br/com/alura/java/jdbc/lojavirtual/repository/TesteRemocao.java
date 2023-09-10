@@ -1,8 +1,8 @@
 package br.com.alura.java.jdbc.lojavirtual.repository;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class TesteRemocao {
 
@@ -11,8 +11,10 @@ public class TesteRemocao {
 		ConnectionFactory factory = new ConnectionFactory();
 		Connection connection = factory.criarConexao();
 		
-		Statement statement = connection.createStatement();
-		statement.execute("DELETE FROM tbproduto WHERE ID > 2");
+		PreparedStatement statement = connection.prepareStatement("DELETE FROM tbproduto WHERE ID > ?");
+		
+		statement.setInt(1, 2);
+		statement.execute();
 		
 		Integer linhasAfetadas = statement.getUpdateCount();
 		

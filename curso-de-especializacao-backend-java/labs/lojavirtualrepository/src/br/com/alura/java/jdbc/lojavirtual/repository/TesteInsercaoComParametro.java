@@ -10,24 +10,44 @@ public class TesteInsercaoComParametro {
 
 	public static void main(String[] args) throws SQLException {
 		ConnectionFactory factory = new ConnectionFactory();
-		Connection connection = factory.criarConexao();
+		try (Connection connection = factory.criarConexao()) {
 
-		String nome = "Mouse";
-		String descricao = "Mouse sem fio Logi Tech";
+			connection.setAutoCommit(false);
 
-		PreparedStatement statement = connection.prepareStatement(
-				"INSERT INTO tbproduto (NOME, DESCRICAO) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+			try (PreparedStatement statement = connection.prepareStatement(
+					"INSERT INTO tbproduto (NOME, DESCRICAO) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS)) {
 
+				adicionarVariavel("SmartTV", "45 polegadas", statement);
+				adicionarVariavel("PC", "PC Gamming", statement);
+
+				connection.commit();
+			} catch (RuntimeException e) {
+				e.printStackTrace();
+				System.out.println("ROLLBACK EXECUTADO!");
+				connection.rollback();
+			}
+
+		}
+	}
+
+	private static void adicionarVariavel(String nome, String descricao, PreparedStatement statement)
+			throws SQLException {
 		statement.setString(1, nome);
 		statement.setString(2, descricao);
 
+		if (nome.equals("PC")) {
+			throw new RuntimeException("Nao foi possivel adicionar este produto");
+		}
+
 		statement.execute();
 
-		ResultSet resultSet = statement.getGeneratedKeys();
+		try (ResultSet resultSet = statement.getGeneratedKeys()) {
 
-		while (resultSet.next()) {
-			Integer id = resultSet.getInt(1);
-			System.out.println("ID criado: " + id);
+			while (resultSet.next()) {
+				Integer id = resultSet.getInt(1);
+				System.out.println("ID criado: " + id);
+			}
+
 		}
 	}
 

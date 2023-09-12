@@ -10,7 +10,7 @@ public class TesteListagem {
 	public static void main(String[] args) throws SQLException {
 
 		ConnectionFactory connectionFactory = new ConnectionFactory();
-		try (Connection connection = connectionFactory.criarConexao()) {
+		try (Connection connection = connectionFactory.recuperarConexao()) {
 
 			try (PreparedStatement statement = connection
 					.prepareStatement("SELECT ID, NOME, DESCRICAO FROM tbproduto")) {

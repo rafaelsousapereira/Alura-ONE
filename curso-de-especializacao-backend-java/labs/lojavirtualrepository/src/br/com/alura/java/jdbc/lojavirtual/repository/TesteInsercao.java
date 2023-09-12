@@ -10,7 +10,7 @@ public class TesteInsercao {
 	public static void main(String[] args) throws SQLException {
 
 		ConnectionFactory factory = new ConnectionFactory();
-		Connection connection = factory.criarConexao();
+		Connection connection = factory.recuperarConexao();
 
 		try (Statement statement = connection.createStatement()) {
 			statement.execute("INSERT INTO tbproduto (NOME, DESCRICAO) VALUES ('Mouse', 'Mouse sem fio Logi Tech')",

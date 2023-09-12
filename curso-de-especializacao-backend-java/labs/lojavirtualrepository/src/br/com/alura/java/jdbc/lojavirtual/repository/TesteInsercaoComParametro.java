@@ -10,7 +10,7 @@ public class TesteInsercaoComParametro {
 
 	public static void main(String[] args) throws SQLException {
 		ConnectionFactory factory = new ConnectionFactory();
-		try (Connection connection = factory.criarConexao()) {
+		try (Connection connection = factory.recuperarConexao()) {
 
 			connection.setAutoCommit(false);
 

@@ -9,7 +9,7 @@ public class TesteRemocao {
 	public static void main(String[] args) throws SQLException {
 
 		ConnectionFactory factory = new ConnectionFactory();
-		try (Connection connection = factory.criarConexao()) {
+		try (Connection connection = factory.recuperarConexao()) {
 
 			try (PreparedStatement statement = connection.prepareStatement("DELETE FROM tbproduto WHERE ID > ?")) {
 

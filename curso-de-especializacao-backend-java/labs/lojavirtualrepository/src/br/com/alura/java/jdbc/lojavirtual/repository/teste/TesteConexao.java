@@ -1,7 +1,9 @@
-package br.com.alura.java.jdbc.lojavirtual.repository;
+package br.com.alura.java.jdbc.lojavirtual.repository.teste;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import br.com.alura.java.jdbc.lojavirtual.repository.ConnectionFactory;
 
 public class TesteConexao {
 

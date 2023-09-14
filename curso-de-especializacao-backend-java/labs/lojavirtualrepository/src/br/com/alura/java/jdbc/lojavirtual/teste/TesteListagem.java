@@ -1,9 +1,11 @@
-package br.com.alura.java.jdbc.lojavirtual.repository;
+package br.com.alura.java.jdbc.lojavirtual.teste;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import br.com.alura.java.jdbc.lojavirtual.repository.ConnectionFactory;
 
 public class TesteListagem {
 
@@ -22,7 +24,7 @@ public class TesteListagem {
 						String nome = resultSet.getString("NOME");
 						String descricao = resultSet.getString("DESCRICAO");
 
-						System.out.println("ID: " + id + ", Nome: " + nome + ", Descricao: " + descricao);
+						System.out.println("Produto: Id: " + id + ", Nome: " + nome + ", Descricao: " + descricao);
 					}
 				}
 			}

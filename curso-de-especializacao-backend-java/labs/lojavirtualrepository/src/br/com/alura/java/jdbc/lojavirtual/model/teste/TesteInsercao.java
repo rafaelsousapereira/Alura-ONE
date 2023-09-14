@@ -1,4 +1,4 @@
-package br.com.alura.java.jdbc.lojavirtual.teste;
+package br.com.alura.java.jdbc.lojavirtual.model.teste;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

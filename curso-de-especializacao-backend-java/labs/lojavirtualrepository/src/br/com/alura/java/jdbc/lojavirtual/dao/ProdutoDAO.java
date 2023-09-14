@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.alura.java.jdbc.lojavirtual.model.Categoria;
 import br.com.alura.java.jdbc.lojavirtual.model.Produto;
 
 public class ProdutoDAO {
@@ -51,6 +52,29 @@ public class ProdutoDAO {
 				}
 			}
 		}
+		return produtos;
+	}
+
+	public List<Produto> buscar(Categoria categoria) throws SQLException {
+		
+		List<Produto> produtos = new ArrayList<>();
+		
+		System.out.println("Executando a query de listar produtos por categoria");
+		
+		String sql = "SELECT ID, NOME, DESCRICAO FROM tbproduto WHERE categoria_id = ?";
+
+		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+			pstm.setInt(1, categoria.getId());
+			pstm.execute();
+
+			try (ResultSet resultSet = pstm.getResultSet()) {
+				while (resultSet.next()) {
+					Produto produto = new Produto(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3));
+					produtos.add(produto);
+				}
+			}
+		}
+		
 		return produtos;
 	}
 }

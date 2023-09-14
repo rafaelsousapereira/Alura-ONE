@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import br.com.alura.java.jdbc.lojavirtual.repository.ConnectionFactory;
+import br.com.alura.java.jdbc.lojavirtual.factory.ConnectionFactory;
 
 public class TesteInsercaoComParametro {
 

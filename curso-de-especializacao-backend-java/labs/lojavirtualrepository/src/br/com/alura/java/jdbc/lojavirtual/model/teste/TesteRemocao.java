@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import br.com.alura.java.jdbc.lojavirtual.repository.ConnectionFactory;
+import br.com.alura.java.jdbc.lojavirtual.factory.ConnectionFactory;
 
 public class TesteRemocao {
 

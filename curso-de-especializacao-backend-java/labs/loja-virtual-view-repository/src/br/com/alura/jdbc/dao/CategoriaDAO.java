@@ -18,30 +18,35 @@ public class CategoriaDAO {
 		this.connection = connection;
 	}
 
-	public List<Categoria> listar() throws SQLException {
-		List<Categoria> categorias = new ArrayList<>();
-		String sql = "SELECT ID, NOME FROM CATEGORIA";
+	public List<Categoria> listar() {
+		try {
+			List<Categoria> categorias = new ArrayList<>();
 
-		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
-			pstm.execute();
+			String sql = "SELECT id, nome FROM tb_categoria";
 
-			try (ResultSet rst = pstm.getResultSet()) {
-				while (rst.next()) {
-					Categoria categoria = new Categoria(rst.getInt(1), rst.getString(2));
+			try (PreparedStatement pstm = connection.prepareStatement(sql)) {
+				pstm.execute();
 
-					categorias.add(categoria);
+				try (ResultSet rst = pstm.getResultSet()) {
+					while (rst.next()) {
+						Categoria categoria = new Categoria(rst.getInt(1), rst.getString(2));
+
+						categorias.add(categoria);
+					}
 				}
 			}
+			return categorias;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
-		return categorias;
 	}
 
 	public List<Categoria> listarComProduto() throws SQLException {
 		Categoria ultima = null;
 		List<Categoria> categorias = new ArrayList<>();
 
-		String sql = "SELECT C.ID, C.NOME, P.ID, P.NOME, P.DESCRICAO " + "FROM CATEGORIA C "
-				+ "INNER JOIN PRODUTO P ON C.ID = P.CATEGORIA_ID";
+		String sql = "SELECT C.id, C.nome, P.id, P.nome, P.descricao " + "FROM tb_categoria C "
+				+ "INNER JOIN tbproduto P ON C.id = P.categoria_id";
 
 		try (PreparedStatement pstm = connection.prepareStatement(sql)) {
 			pstm.execute();

@@ -59,8 +59,6 @@ public class ProdutoDAO {
 		
 		List<Produto> produtos = new ArrayList<>();
 		
-		System.out.println("Executando a query de listar produtos por categoria");
-		
 		String sql = "SELECT ID, NOME, DESCRICAO FROM tbproduto WHERE categoria_id = ?";
 
 		try (PreparedStatement pstm = connection.prepareStatement(sql)) {

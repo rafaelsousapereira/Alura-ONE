@@ -21,8 +21,6 @@ public class CategoriaDAO {
 	public List<Categoria> listar() throws SQLException {
 		List<Categoria> categorias = new ArrayList<>();
 
-		System.out.println("Executando a query de listar categorias");
-
 		String sql = "SELECT id, nome FROM tb_categoria";
 
 		try (PreparedStatement pstm = connection.prepareStatement(sql)) {

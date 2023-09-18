@@ -42,7 +42,7 @@ public class ProdutoCategoriaFrame extends JFrame {
 		this.produtoController = new ProdutoController();
 
 		labelNome = new JLabel("Nome do Produto");
-		labelDescricao = new JLabel("Descrição do Produto");
+		labelDescricao = new JLabel("DescriÃ§Ã£o do Produto");
 		labelCategoria = new JLabel("Categoria do Produto");
 
 		labelNome.setBounds(10, 10, 240, 15);
@@ -89,7 +89,7 @@ public class ProdutoCategoriaFrame extends JFrame {
 
 		modelo.addColumn("Identificador do Produto");
 		modelo.addColumn("Nome do Produto");
-		modelo.addColumn("Descrição do Produto");
+		modelo.addColumn("DescriÃ§Ã£o do Produto");
 
 		preencherTabela();
 
@@ -166,7 +166,7 @@ public class ProdutoCategoriaFrame extends JFrame {
 			Integer id = (Integer) objetoDaLinha;
 			this.produtoController.deletar(id);
 			modelo.removeRow(tabela.getSelectedRow());
-			JOptionPane.showMessageDialog(this, "Item excluído com sucesso!");
+			JOptionPane.showMessageDialog(this, "Item excluÃ­do com sucesso!");
 		} else {
 			JOptionPane.showMessageDialog(this, "Por favor, selecionar o ID");
 		}
@@ -196,7 +196,7 @@ public class ProdutoCategoriaFrame extends JFrame {
 			JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
 			this.limpar();
 		} else {
-			JOptionPane.showMessageDialog(this, "Nome e Descrição devem ser informados.");
+			JOptionPane.showMessageDialog(this, "Nome e DescriÃ§Ã£o devem ser informados.");
 		}
 	}
 

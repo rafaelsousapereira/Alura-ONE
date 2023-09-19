@@ -22,8 +22,21 @@ public class CadastroDeProdutos {
 		Produto produto = produtoDAO.buscarPorId(1l);
 		System.out.println(produto.getPreco());
 		
+//		Buscar todos
 		List<Produto> todosOsProdutos = produtoDAO.buscarTodos();
-		todosOsProdutos.stream().forEach(p -> System.out.println(p.getNome()));
+		todosOsProdutos.stream().forEach(p -> System.out.println(p.getDescricao()));
+		
+//		Buscar por nome
+		List<Produto> buscarPorNome = produtoDAO.buscarPorNome("Xaomi Redmi");
+		buscarPorNome.stream().forEach(p -> System.out.println(p.getNome()));
+		
+//		Buscar por nome da categoria
+		List<Produto> buscarPorNomeDaCategoria = produtoDAO.buscarPorNomeDaCategoria("CELULARES");
+		buscarPorNomeDaCategoria.stream().forEach(p -> System.out.println(p.getNome()));
+		
+//		Buscar por preco do produto com nome
+		BigDecimal buscarPrecoDoProduto = produtoDAO.buscarPrecoDoProdutoComNome("Xaomi Redmi");
+		System.out.println("Preco do Produto: " + buscarPrecoDoProduto);
 	}
 
 	private static void cadastrarProduto() {

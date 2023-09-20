@@ -6,15 +6,17 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import br.com.alura.loja.dao.CategoriaDAO;
+import br.com.alura.loja.dao.ClienteDAO;
 import br.com.alura.loja.dao.ProdutoDAO;
 import br.com.alura.loja.modelo.Categoria;
+import br.com.alura.loja.modelo.Cliente;
 import br.com.alura.loja.modelo.Produto;
 import br.com.alura.loja.util.JPAUtil;
 
 public class CadastroDeProdutos {
 
 	public static void main(String[] args) {
-		cadastrarProduto();
+		popularBancoDeDados();
 
 		EntityManager entityManager = JPAUtil.getEntityManager();
 		ProdutoDAO produtoDAO = new ProdutoDAO(entityManager);
@@ -39,19 +41,22 @@ public class CadastroDeProdutos {
 		System.out.println("Preco do Produto: " + buscarPrecoDoProduto);
 	}
 
-	public static void cadastrarProduto() {
+	public static void popularBancoDeDados() {
 		Categoria celulares = new Categoria("CELULARES");
 		Produto celular = new Produto("Xaomi Redmi", "Muito legal", new BigDecimal("800"), celulares);
+		Cliente cliente = new Cliente("Rafael", "12345098");
 
 		EntityManager entityManager = JPAUtil.getEntityManager();
 
 		ProdutoDAO produtoDAO = new ProdutoDAO(entityManager);
 		CategoriaDAO categoriaDAO = new CategoriaDAO(entityManager);
+		ClienteDAO clienteDAO = new ClienteDAO(entityManager);
 
 		entityManager.getTransaction().begin();
 
 		categoriaDAO.cadastrar(celulares);
 		produtoDAO.cadastrar(celular);
+		clienteDAO.cadastrar(cliente);
 
 		entityManager.getTransaction().commit();
 		entityManager.close();

@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "pedidos")
+@Table(name = "itens_pedido")
 public class ItemPedido {
 
 	@Id
@@ -32,6 +32,7 @@ public class ItemPedido {
 	public ItemPedido(int quantidade, Pedido pedido, Produto produto) {
 		this.quantidade = quantidade;
 		this.pedido = pedido;
+		this.precoUnitario = produto.getPreco();
 		this.produto = produto;
 	}
 
@@ -75,5 +76,4 @@ public class ItemPedido {
 		this.produto = produto;
 	}
 
-	
 }

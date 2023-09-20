@@ -39,7 +39,7 @@ public class CadastroDeProdutos {
 		System.out.println("Preco do Produto: " + buscarPrecoDoProduto);
 	}
 
-	private static void cadastrarProduto() {
+	public static void cadastrarProduto() {
 		Categoria celulares = new Categoria("CELULARES");
 		Produto celular = new Produto("Xaomi Redmi", "Muito legal", new BigDecimal("800"), celulares);
 

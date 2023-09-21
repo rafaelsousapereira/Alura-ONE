@@ -18,6 +18,10 @@ import br.com.alura.loja.vo.RelatorioDeVendasVO;
 public class CadastroDePedido {
 
 	public static void main(String[] args) {
+		popularBancoDeDadosComClienteProdutoPedido();
+	}
+
+	public static void popularBancoDeDadosComClienteProdutoPedido() {
 		CadastroDeProdutos.popularBancoDeDados();
 
 		EntityManager entityManager = JPAUtil.getEntityManager();

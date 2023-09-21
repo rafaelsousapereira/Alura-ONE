@@ -43,7 +43,13 @@ public class CadastroDeProdutos {
 
 	public static void popularBancoDeDados() {
 		Categoria celulares = new Categoria("CELULARES");
+		Categoria videoGames = new Categoria("VIDEOGAMES");
+		Categoria informatica = new Categoria("INFORMATICA");
+		
 		Produto celular = new Produto("Xaomi Redmi", "Muito legal", new BigDecimal("800"), celulares);
+		Produto videoGame = new Produto("PS5", "Playstation 5", new BigDecimal("2500"), celulares);
+		Produto macbook = new Produto("Macbook", "Macbook Pro", new BigDecimal("4500"), celulares);
+		
 		Cliente cliente = new Cliente("Rafael", "12345098");
 
 		EntityManager entityManager = JPAUtil.getEntityManager();
@@ -55,7 +61,13 @@ public class CadastroDeProdutos {
 		entityManager.getTransaction().begin();
 
 		categoriaDAO.cadastrar(celulares);
+		categoriaDAO.cadastrar(videoGames);
+		categoriaDAO.cadastrar(informatica);
+		
 		produtoDAO.cadastrar(celular);
+		produtoDAO.cadastrar(videoGame);
+		produtoDAO.cadastrar(macbook);
+		
 		clienteDAO.cadastrar(cliente);
 
 		entityManager.getTransaction().commit();

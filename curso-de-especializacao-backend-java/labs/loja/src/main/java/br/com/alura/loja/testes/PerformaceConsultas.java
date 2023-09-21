@@ -2,6 +2,7 @@ package br.com.alura.loja.testes;
 
 import javax.persistence.EntityManager;
 
+import br.com.alura.loja.dao.PedidoDAO;
 import br.com.alura.loja.modelo.Pedido;
 import br.com.alura.loja.util.JPAUtil;
 
@@ -11,10 +12,13 @@ public class PerformaceConsultas {
 
 		CadastroDePedido.popularBancoDeDadosComClienteProdutoPedido();
 		EntityManager entityManager = JPAUtil.getEntityManager();
-		
-		Pedido pedido = entityManager.find(Pedido.class, 1L);
-		System.out.println(pedido.getData());
-		System.out.println(pedido.getItens().size());
+
+		PedidoDAO pedidoDAO = new PedidoDAO(entityManager);
+		Pedido pedido = pedidoDAO.buscarPedidoComCliente(1L);
+
+		entityManager.close();
+
+		System.out.println(pedido.getCliente().getNome());
 
 	}
 

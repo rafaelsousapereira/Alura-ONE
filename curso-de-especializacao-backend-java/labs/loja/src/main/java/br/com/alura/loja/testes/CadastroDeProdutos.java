@@ -9,6 +9,7 @@ import br.com.alura.loja.dao.CategoriaDAO;
 import br.com.alura.loja.dao.ClienteDAO;
 import br.com.alura.loja.dao.ProdutoDAO;
 import br.com.alura.loja.modelo.Categoria;
+import br.com.alura.loja.modelo.CategoriaId;
 import br.com.alura.loja.modelo.Cliente;
 import br.com.alura.loja.modelo.Produto;
 import br.com.alura.loja.util.JPAUtil;
@@ -71,6 +72,9 @@ public class CadastroDeProdutos {
 		clienteDAO.cadastrar(cliente);
 
 		entityManager.getTransaction().commit();
+		
+		entityManager.find(Categoria.class, new CategoriaId("CELULARES", "xpto"));
+		
 		entityManager.close();
 	}
 

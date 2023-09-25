@@ -4,13 +4,6 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-# Eclipse
-bin/
-.classpath
-.project
-.settings/
-*.class
-
 ### STS ###
 .apt_generated
 .classpath
@@ -21,7 +14,7 @@ bin/
 .sts4-cache
 
 ### IntelliJ IDEA ###
-.idea/
+.idea
 *.iws
 *.iml
 *.ipr
@@ -38,10 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-# Mac
-.DS_Store
-
-# Maven
-log/
-target/

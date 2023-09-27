@@ -1,9 +1,6 @@
 package br.com.alura.med.voll.api.controller;
 
-import br.com.alura.med.voll.api.paciente.DadosCadastroPaciente;
-import br.com.alura.med.voll.api.paciente.DadosListagemPaciente;
-import br.com.alura.med.voll.api.paciente.Paciente;
-import br.com.alura.med.voll.api.paciente.PacienteRepository;
+import br.com.alura.med.voll.api.paciente.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,5 +25,12 @@ public class PacienteController {
     @GetMapping
     public Page<DadosListagemPaciente> listar(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
         return repository.findAll(paginacao).map(DadosListagemPaciente::new);
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoPaciente dados) {
+        var paciente = repository.getReferenceById(dados.id());
+        paciente.atualizarInformacoesPaciente(dados);
     }
 }

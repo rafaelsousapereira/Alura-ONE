@@ -1,6 +1,6 @@
 package br.com.alura.med.voll.api.controller;
 
-import br.com.alura.med.voll.api.medico.*;
+import br.com.alura.med.voll.api.domain.medico.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

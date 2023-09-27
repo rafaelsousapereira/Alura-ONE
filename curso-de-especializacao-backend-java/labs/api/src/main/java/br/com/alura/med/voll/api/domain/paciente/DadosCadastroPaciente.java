@@ -1,14 +1,14 @@
-package br.com.alura.med.voll.api.medico;
+package br.com.alura.med.voll.api.domain.paciente;
 
-import br.com.alura.med.voll.api.endereco.DadosEndereco;
-import br.com.alura.med.voll.api.enums.Especialidade;
+import br.com.alura.med.voll.api.domain.endereco.DadosEndereco;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record DadosCadastroMedico(
+public record DadosCadastroPaciente(
+
         @NotBlank
         String nome,
 
@@ -20,11 +20,8 @@ public record DadosCadastroMedico(
         String telefone,
 
         @NotBlank
-        @Pattern(regexp = "\\d{4,6}")
-        String crm,
-
-        @NotNull
-        Especialidade especialidade,
+        @Pattern(regexp = "\\d{11}")
+        String cpf,
 
         @NotNull
         @Valid

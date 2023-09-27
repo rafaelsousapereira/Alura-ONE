@@ -1,4 +1,4 @@
-package br.com.alura.med.voll.api.medico;
+package br.com.alura.med.voll.api.domain.medico;
 
 import br.com.alura.med.voll.api.enums.Especialidade;
 

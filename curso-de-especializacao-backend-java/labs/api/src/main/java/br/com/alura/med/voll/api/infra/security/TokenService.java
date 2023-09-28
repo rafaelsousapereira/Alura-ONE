@@ -1,6 +1,7 @@
 package br.com.alura.med.voll.api.infra.security;
 
 import br.com.alura.med.voll.api.domain.usuario.Usuario;
+import br.com.alura.med.voll.api.infra.exception.ErroAoGerarTokenJWTException;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -27,7 +28,7 @@ public class TokenService {
                     .withExpiresAt(dataExpiracao())
                     .sign(algoritmo);
         } catch (JWTCreationException exception) {
-            throw new RuntimeException("Erro ao gerar token JWT", exception);
+            throw  new ErroAoGerarTokenJWTException("Erro ao gerar token JWT \n" + exception);
         }
     }
 

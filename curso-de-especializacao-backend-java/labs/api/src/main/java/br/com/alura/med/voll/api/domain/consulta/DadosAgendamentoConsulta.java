@@ -1,5 +1,6 @@
 package br.com.alura.med.voll.api.domain.consulta;
 
+import br.com.alura.med.voll.api.enums.Especialidade;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
 
@@ -13,5 +14,7 @@ public record DadosAgendamentoConsulta(
 
         @NotNull
         @Future
-        LocalDateTime data) {
+        LocalDateTime data,
+
+        Especialidade especialidade) {
 }

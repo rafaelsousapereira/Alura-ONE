@@ -1,8 +1,6 @@
 package br.com.alura.med.voll.api.controller;
 
-import br.com.alura.med.voll.api.domain.consulta.AgendaDeConsultasService;
-import br.com.alura.med.voll.api.domain.consulta.DadosAgendamentoConsulta;
-import br.com.alura.med.voll.api.domain.consulta.DadosDetalhamentoConsulta;
+import br.com.alura.med.voll.api.domain.consulta.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,5 +20,13 @@ public class ConsultaController {
         agendaDeConsultasService.agendar(dados);
 
         return ResponseEntity.ok(new DadosDetalhamentoConsulta(null, null, null, null));
+    }
+
+    @DeleteMapping
+    @Transactional
+    public ResponseEntity<DadosCancelamentoConsulta> cancelar(@RequestBody @Valid DadosCancelamentoConsulta dados) {
+        agendaDeConsultasService.cancelar(dados);
+
+        return ResponseEntity.noContent().build();
     }
 }

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class AgendaDeConsultasService {
 
     @Autowired
-    private ConsultaRepopsitory consultaRepository;
+    private ConsultaRepository consultaRepository;
 
     @Autowired
     private MedicoRepository medicoRepository;

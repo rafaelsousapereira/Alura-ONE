@@ -3,9 +3,13 @@ package br.com.alura.med.voll.api.domain.consulta.validacoes;
 import br.com.alura.med.voll.api.domain.consulta.ConsultaRepository;
 import br.com.alura.med.voll.api.domain.consulta.DadosAgendamentoConsulta;
 import br.com.alura.med.voll.api.domain.exception.ValidacaoException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class ValidadorPacienteSemOutraConsultaNoDia {
+@Component
+public class ValidadorPacienteSemOutraConsultaNoDia implements ValidadorAgendamentoDeConsulta {
 
+    @Autowired
     private ConsultaRepository repository;
 
     public void validar(DadosAgendamentoConsulta dados) {

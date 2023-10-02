@@ -27,7 +27,6 @@ public class ConsultaController {
     @Transactional
     public ResponseEntity<DadosCancelamentoConsulta> cancelar(@RequestBody @Valid DadosCancelamentoConsulta dados) {
         agendaDeConsultasService.cancelar(dados);
-
         return ResponseEntity.noContent().build();
     }
 }

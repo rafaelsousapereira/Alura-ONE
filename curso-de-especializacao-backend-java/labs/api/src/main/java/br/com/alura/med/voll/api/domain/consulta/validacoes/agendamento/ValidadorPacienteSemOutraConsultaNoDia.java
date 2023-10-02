@@ -1,4 +1,4 @@
-package br.com.alura.med.voll.api.domain.consulta.validacoes;
+package br.com.alura.med.voll.api.domain.consulta.validacoes.agendamento;
 
 import br.com.alura.med.voll.api.domain.consulta.ConsultaRepository;
 import br.com.alura.med.voll.api.domain.consulta.DadosAgendamentoConsulta;

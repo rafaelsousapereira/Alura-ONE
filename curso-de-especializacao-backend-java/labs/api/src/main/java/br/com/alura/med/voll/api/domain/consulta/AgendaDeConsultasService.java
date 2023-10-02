@@ -1,6 +1,7 @@
 package br.com.alura.med.voll.api.domain.consulta;
 
-import br.com.alura.med.voll.api.domain.consulta.validacoes.ValidadorAgendamentoDeConsulta;
+import br.com.alura.med.voll.api.domain.consulta.validacoes.agendamento.ValidadorAgendamentoDeConsulta;
+import br.com.alura.med.voll.api.domain.consulta.validacoes.cancelamento.ValidadorCancelamentoDeConsulta;
 import br.com.alura.med.voll.api.domain.exception.ValidacaoException;
 import br.com.alura.med.voll.api.domain.medico.Medico;
 import br.com.alura.med.voll.api.domain.medico.MedicoRepository;
@@ -24,6 +25,9 @@ public class AgendaDeConsultasService {
 
     @Autowired
     private List<ValidadorAgendamentoDeConsulta> validadores;
+
+    @Autowired
+    private List<ValidadorCancelamentoDeConsulta> validadoresCancelamento;
 
     public DadosDetalhamentoConsulta agendar(DadosAgendamentoConsulta dados) {
 
@@ -66,6 +70,8 @@ public class AgendaDeConsultasService {
         if (!consultaRepository.existsById(dados.idConsulta())) {
             throw new ValidacaoException("Id da consulta informado não existe!");
         }
+
+        validadoresCancelamento.forEach(v -> v.validar(dados));
 
         var consulta = consultaRepository.getReferenceById(dados.idConsulta());
         consulta.cancelar(dados.motivo());
